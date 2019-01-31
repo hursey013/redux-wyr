@@ -24,7 +24,6 @@ export default function questions(state = {}, action) {
         }
       };
     case SAVE_NEW_QUESTION:
-      console.log(action.question);
       return {
         ...state,
         [action.question.id]: {

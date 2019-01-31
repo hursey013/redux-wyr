@@ -33,6 +33,9 @@ class NewQuestion extends Component {
   };
 
   render() {
+    const { optionOneText, optionTwoText } = this.state;
+    const disabled = !optionOneText || !optionTwoText;
+
     return (
       <div className="border rounded p-4 mb-4">
         <h3 className="mb-4">New Question</h3>
@@ -41,6 +44,7 @@ class NewQuestion extends Component {
         </h4>
         <form onSubmit={this.handleSubmit}>
           <input
+            aria-label="Option 1"
             className="appearance-none block w-full bg-white border border-grey-light hover:border-grey px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             value={this.state.optionOneText}
@@ -49,6 +53,7 @@ class NewQuestion extends Component {
           />
           <p className="font-bold uppercase text-center my-4">or</p>
           <input
+            aria-label="Option 2"
             className="appearance-none block w-full bg-white border border-grey-light hover:border-grey px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
             type="text"
             value={this.state.optionTwoText}
@@ -56,8 +61,10 @@ class NewQuestion extends Component {
             placeholder="Option 2"
           />
           <button
-            className="block w-24 bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded no-underline text-center my-4"
+            className={`block w-24 bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded no-underline text-center my-4 ${disabled &&
+              "opacity-50 cursor-not-allowed"}`}
             type="submit"
+            disabled={disabled}
           >
             Submit
           </button>

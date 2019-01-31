@@ -10,7 +10,6 @@ import Footer from "./Footer";
 import NoMatch from "./NoMatch";
 import NewQuestion from "./NewQuestion";
 import LeaderBoard from "./LeaderBoard";
-import Logout from "./Logout";
 
 class App extends Component {
   componentDidMount() {
@@ -30,7 +29,6 @@ class App extends Component {
                 <Route path="/question/:id" component={QuestionPage} />
                 <Route path="/add" component={NewQuestion} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/logout" component={Logout} />
                 <Route component={NoMatch} />
               </Switch>
               <Footer />
